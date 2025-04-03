@@ -1,12 +1,14 @@
-import React from 'react'
+import React from 'react';
 
 const Badge = () => {
   return (
-    <div className='flex flex-col p-2 bg-white bg-opacity-75'>
-      <h1 className='text-[#FF8B00]'>200k+</h1>
-      <p>People Delivered</p>
+    <div
+      className="flex flex-col items-center justify-center p-6 rounded-lg shadow-lg relative"
+    >
+      <h1 className="text-[#FF8B00] text-2xl font-extrabold">200k+</h1>
+      <p className="text-white text-lg font-medium">People Delivered</p>
     </div>
-  )
-}
+  );
+};
 
-export default Badge
+export default Badge;
