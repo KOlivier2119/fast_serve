@@ -1,15 +1,17 @@
 import React from "react";
 import Badge from "./Badge";
 import LinkGroup from "./LinkGroup";
+import Image from "next/image";
+import plate from "../public/plate.svg";
 
 const Hero = () => {
   return (
-    <div
-    style={{ backgroundColor: "rgba(107, 145, 66, 0.1)" }} // True 10% opacity
-    >
-      <div
-        className="h-[90vh] w-[80vw] mx-auto flex items-center px-10"        
-      >
+    <div style={{ backgroundColor: "rgba(107, 145, 66, 0.1)" }}> {/* 10% Opacity */}
+      <div className="h-[90vh] w-[80vw] mx-auto flex items-center px-10 relative">
+        
+        {/* Badge Positioned at Top-Right */}
+        <Badge />
+
         {/* Left Content */}
         <div className="w-1/2">
           <h1 className="text-[#396C03] text-5xl font-bold leading-tight">
@@ -27,10 +29,11 @@ const Hero = () => {
           <LinkGroup />
         </div>
 
-        {/* Right Side - Centered Badge */}
+        {/* Right Side - Image */}
         <div className="flex justify-center items-center">
-          <Badge />
+          <Image src={plate} alt="Food" />
         </div>
+
       </div>
     </div>
   );

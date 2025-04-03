@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "FastTime",
+  title: "FoodTime",
   description: "We always respect time to feast.",
 };
 

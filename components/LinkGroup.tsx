@@ -3,7 +3,7 @@ import { FaSearch } from 'react-icons/fa';
 
 const LinkGroup = () => {
   return (
-    <div className="flex items-center w-full max-w-md rounded-full border border-gray-300 shadow-md p-2 bg-white">
+    <div className="flex items-center w-full max-w-md rounded-full border border-gray-300 shadow-md p-2 bg-white my-4">
       {/* Input Field */}
       <input
         type="text"
