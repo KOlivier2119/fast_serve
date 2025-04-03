@@ -21,7 +21,7 @@ const Explore = () => {
           </button>
         </div>
         <div className="w-1/2">
-          <Image src={bicyle} alt="Bicycle rider" />
+          <Image src={bicyle} width={500} height={500} alt="Bicycle rider" />
         </div>
       </div>
     </div>
