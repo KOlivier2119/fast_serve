@@ -1,8 +1,7 @@
 import Explore from "@/components/Explore";
 import Hero from "@/components/Hero";
 import Service from "@/components/Service";
-
-import Image from "next/image";
+import Faq from "@/components/Faq";
 
 export default function Home() {
   return (
@@ -10,6 +9,7 @@ export default function Home() {
       <Hero />
       <Explore />
       <Service />
+      <Faq />
     </div>
   );
 }
