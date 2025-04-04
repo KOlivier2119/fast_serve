@@ -85,10 +85,12 @@ const Explore = () => {
                 </div>
               </div>
 
-              <button className="mt-8 py-3.5 px-7 bg-[#396C03] rounded-full flex items-center gap-3 text-white font-medium transition-all duration-300 hover:bg-[#2e5802] hover:shadow-lg transform hover:-translate-y-1 active:translate-y-0 group">
-                Explore
-                <FaArrowRight className="group-hover:translate-x-1 transition-transform duration-300" />
-              </button>
+              <div className="flex justify-center md:justify-start">
+                <button className="mt-8 py-3.5 px-7 bg-[#396C03] rounded-full flex items-center gap-3 text-white font-medium transition-all duration-300 hover:bg-[#2e5802] hover:shadow-lg transform hover:-translate-y-1 active:translate-y-0 group">
+                  Explore
+                  <FaArrowRight className="group-hover:translate-x-1 transition-transform duration-300" />
+                </button>
+              </div>
             </div>
           </motion.div>
 

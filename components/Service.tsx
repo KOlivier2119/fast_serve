@@ -29,7 +29,7 @@ const Service = () => {
 
   return (
     <div>
-      <div className="flex gap-5 items-center justify-between w-[80vw] mx-auto py-8">
+      <div className="flex flex-col md:flex-row gap-5 items-center justify-between w-[80vw] mx-auto py-8">
         {/* Map through the data array and render a ServiceCard for each item */}
         {data.map((item, index) => (
           <ServiceCard

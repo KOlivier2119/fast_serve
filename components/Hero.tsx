@@ -42,7 +42,7 @@ const Hero = () => {
             Freshly made food delivered to your door.
           </p>
 
-          <div className="mt-8">
+          <div className="mt-8 flex justify-center md:justify-start">
             <LinkGroup />
           </div>
 

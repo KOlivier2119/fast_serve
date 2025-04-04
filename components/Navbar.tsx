@@ -13,7 +13,7 @@ const Navbar = () => {
       <nav className="flex justify-between items-center w-full max-w-screen-xl px-4 md:px-6 py-4">
         {/* Brand Name */}
         <Link href="/" className="flex items-center gap-2">
-          <h1 className="text-[#396C03] font-bold text-xl md:text-2xl italic">FoodTime</h1>
+          <h1 className="text-[#396C03] font-bold text-xl md:text-2xl italic">FastServe</h1>
         </Link>
 
         {/* Mobile Menu Button */}
