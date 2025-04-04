@@ -1,19 +1,20 @@
-"use client"
+"use client";
 
-import Link from "next/link"
-import { useState } from "react"
-import { FaShoppingCart, FaGlobe, FaBars, FaTimes } from "react-icons/fa"
+import Link from "next/link";
+import { useState } from "react";
+import { FaShoppingCart, FaGlobe, FaBars, FaTimes } from "react-icons/fa";
 
 const Navbar = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [cartItems, setCartItems] = useState(0) // Example state for cart items
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [cartItems, setCartItems] = useState(0);
 
   return (
     <div className="flex justify-center bg-white shadow-md fixed top-0 w-full z-50">
       <nav className="flex justify-between items-center w-full max-w-screen-xl px-4 md:px-6 py-4">
-        {/* Brand Name */}
         <Link href="/" className="flex items-center gap-2">
-          <h1 className="text-[#396C03] font-bold text-xl md:text-2xl italic">FastServe</h1>
+          <h1 className="text-[#396C03] font-bold text-xl md:text-2xl italic">
+            FastServe
+          </h1>
         </Link>
 
         {/* Mobile Menu Button */}
@@ -27,15 +28,24 @@ const Navbar = () => {
 
         {/* Navigation Links - Desktop */}
         <div className="hidden md:flex gap-8 text-[#3F3F3F] font-medium">
-          <Link href="/" className="hover:text-[#396C03] transition duration-300 relative group">
+          <Link
+            href="/"
+            className="hover:text-[#396C03] transition duration-300 relative group"
+          >
             Home
             <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#396C03] transition-all duration-300 group-hover:w-full"></span>
           </Link>
-          <Link href="/blog" className="hover:text-[#396C03] transition duration-300 relative group">
+          <Link
+            href="/blog"
+            className="hover:text-[#396C03] transition duration-300 relative group"
+          >
             Blog
             <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#396C03] transition-all duration-300 group-hover:w-full"></span>
           </Link>
-          <Link href="/about" className="hover:text-[#396C03] transition duration-300 relative group">
+          <Link
+            href="/about"
+            className="hover:text-[#396C03] transition duration-300 relative group"
+          >
             About Us
             <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#396C03] transition-all duration-300 group-hover:w-full"></span>
           </Link>
@@ -157,8 +167,7 @@ const Navbar = () => {
         )}
       </nav>
     </div>
-  )
-}
+  );
+};
 
-export default Navbar
-
+export default Navbar;
