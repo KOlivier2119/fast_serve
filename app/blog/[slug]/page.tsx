@@ -35,15 +35,11 @@ interface RelatedPost {
   readTime: string;
 }
 
-// This would normally come from a database or API
-const getBlogPost = (slug: string): BlogPost => {
-  // For demo purposes, we'll just return data for the healthy food post
-  // In a real app, you'd fetch this based on the slug
+const getBlogPost = async (slug: string): Promise<BlogPost> => {
   return {
     id: "healthy-food-delivery-options",
     title: "10 Healthy Food Delivery Options You Need to Try",
-    excerpt:
-      "Discover the best healthy food options that you can get delivered right to your doorstep without compromising on taste or nutrition.",
+    excerpt: "Discover the best healthy food options that you can get delivered right to your doorstep without compromising on taste or nutrition.",
     content: `
       <p class="text-lg mb-4">In today's fast-paced world, finding time to prepare healthy meals can be challenging. Fortunately, the rise of food delivery services has made it easier than ever to enjoy nutritious food without spending hours in the kitchen.</p>
       
@@ -102,14 +98,12 @@ const getBlogPost = (slug: string): BlogPost => {
   }
 }
 
-// This would normally come from a database or API
-const getRelatedPosts = (): RelatedPost[] => {
+const getRelatedPosts = async (): Promise<RelatedPost[]> => {
   return [
     {
       id: "plant-based-food-delivery",
       title: "The Rise of Plant-Based Options in Food Delivery",
-      excerpt:
-        "Plant-based eating is on the rise, and food delivery services are adapting. See the best vegan options available now.",
+      excerpt: "Plant-based eating is on the rise, and food delivery services are adapting. See the best vegan options available now.",
       image: "/placeholder.svg?height=400&width=600",
       date: "March 15, 2025",
       author: {
@@ -122,8 +116,7 @@ const getRelatedPosts = (): RelatedPost[] => {
     {
       id: "quick-meals-busy-professionals",
       title: "Quick and Easy Meals for Busy Professionals",
-      excerpt:
-        "No time to cook? No problem. These quick meal options will save your day without sacrificing quality or taste.",
+      excerpt: "No time to cook? No problem. These quick meal options will save your day without sacrificing quality or taste.",
       image: "/placeholder.svg?height=400&width=600",
       date: "March 25, 2025",
       author: {
@@ -136,8 +129,7 @@ const getRelatedPosts = (): RelatedPost[] => {
     {
       id: "sustainable-food-packaging",
       title: "Sustainable Food Packaging: The Future of Delivery",
-      excerpt:
-        "How FastServe is leading the way in eco-friendly food packaging solutions that reduce waste without compromising food quality.",
+      excerpt: "How FastServe is leading the way in eco-friendly food packaging solutions that reduce waste without compromising food quality.",
       image: "/placeholder.svg?height=400&width=600",
       date: "March 1, 2025",
       author: {
@@ -156,9 +148,9 @@ interface PageProps {
   };
 }
 
-export default function BlogPostPage({ params }: PageProps) {
-  const post = getBlogPost(params.slug)
-  const relatedPosts = getRelatedPosts()
+export default async function BlogPostPage({ params }: PageProps) {
+  const post = await getBlogPost(params.slug)
+  const relatedPosts = await getRelatedPosts()
   
   return (
     <div className="min-h-screen bg-gray-50">
