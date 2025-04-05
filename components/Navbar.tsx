@@ -32,7 +32,7 @@ const Navbar = () => {
     <div className={`fixed top-0 w-full z-50 ${
       isScrolled ? "bg-[#396C03] shadow-md" : "bg-[#396C03]"
     } text-white transition-all duration-300`}>
-      <nav className="container mx-auto flex justify-between items-center px-4 md:px-6">
+      <nav className="container mx-auto flex justify-between items-center px-4 py-4 md:px-6">
         {/* Logo */}
         <Link href="/" className="flex items-center">
           <div className="rounded-full p-2 mr-3 bg-white">
@@ -54,7 +54,7 @@ const Navbar = () => {
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
         >
-          {isMenuOpen ? <FaTimes size={20} /> : <FaBars size={20} />}
+          {isMenuOpen ? <FaTimes size={20} className="text-[#396C03]"/> : <FaBars size={20} />}
         </button>
 
         {/* Navigation Links - Desktop */}

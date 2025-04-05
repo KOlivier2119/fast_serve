@@ -1,21 +1,24 @@
-"use client"
+"use client";
 
-import { useEffect, useState } from "react"
-import Badge from "./Badge"
-import LinkGroup from "./LinkGroup"
-import Image from "next/image"
-import plate from "../public/plate.svg"
-import { motion } from "framer-motion"
+import { useEffect, useState } from "react";
+import Badge from "./Badge";
+import LinkGroup from "./LinkGroup";
+import Image from "next/image";
+import plate from "../public/plate.svg";
+import { motion } from "framer-motion";
 
 const Hero = () => {
-  const [isVisible, setIsVisible] = useState(false)
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    setIsVisible(true)
-  }, [])
+    setIsVisible(true);
+  }, []);
 
   return (
-    <section className="bg-[rgba(107,145,66,0.1)] overflow-hidden" aria-label="Hero section">
+    <section
+      className="bg-[rgba(107,145,66,0.1)] overflow-hidden"
+      aria-label="Hero section"
+    >
       <div className="container mx-auto px-4 md:px-6 lg:px-8 py-12 md:py-16 lg:py-20 min-h-[90vh] flex flex-col lg:flex-row items-center justify-between relative">
         {/* Badge Positioned at Top-Right */}
         {/* <div className="absolute top-10 right-10 z-10">
@@ -24,7 +27,7 @@ const Hero = () => {
 
         {/* Left Content */}
         <motion.div
-          className="w-full lg:w-1/2 mb-12 lg:mb-0 text-center lg:text-left"
+          className="w-full lg:w-1/2 mb-12 mt-24 md:mt-0 lg:mb-0 text-center lg:text-left"
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: isVisible ? 1 : 0, x: isVisible ? 0 : -50 }}
           transition={{ duration: 0.8, delay: 0.2 }}
@@ -34,7 +37,9 @@ const Hero = () => {
             <span className="block mb-2">from your favorite</span>
             <span className="block relative">
               local restaurants
-              <span className="absolute -bottom-2 left-0 lg:left-0 w-24 h-1 bg-[#FF8B00] rounded-full"></span>
+              <div className="flex justify-center md:justify-start items-center w-full">
+                <span className="relative -bottom-2 left-0 lg:left-0 w-46 md:w-96 h-1 bg-[#FF8B00] rounded-full"></span>
+              </div>
             </span>
           </h1>
 
@@ -148,8 +153,7 @@ const Hero = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Hero
-
+export default Hero;
