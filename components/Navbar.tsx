@@ -29,7 +29,9 @@ const Navbar = () => {
   }, []);
 
   return (
-    <div className="fixed top-0 w-full z-50 bg-[#396C03]/85 backdrop-blur-md shadow-lg py-2 text-white">
+    <div className={`fixed top-0 w-full z-50 ${
+      isScrolled ? "bg-[#396C03] shadow-md" : "bg-[#396C03]"
+    } text-white transition-all duration-300`}>
       <nav className="container mx-auto flex justify-between items-center px-4 md:px-6">
         {/* Logo */}
         <Link href="/" className="flex items-center">
@@ -110,7 +112,7 @@ const Navbar = () => {
 
         {/* Mobile Menu - Full Screen Overlay */}
         <div
-          className={`fixed inset-0 bg-white/95 backdrop-blur-md z-40 md:hidden flex flex-col pt-20 px-6 pb-6 transform transition-transform duration-300 ease-in-out ${
+          className={`fixed inset-0 bg-white z-40 md:hidden flex flex-col pt-20 px-6 pb-6 transform transition-transform duration-300 ease-in-out ${
             isMenuOpen ? "translate-x-0" : "translate-x-full"
           }`}
         >
@@ -140,7 +142,7 @@ const Navbar = () => {
                 </div>
                 <select
                   name="language"
-                  className="appearance-none bg-transparent border border-gray-300 rounded-md px-2 py-1 focus:outline-none focus:border-[#396C03] text-sm"
+                  className="appearance-none bg-white border border-gray-300 rounded-md px-2 py-1 focus:outline-none focus:border-[#396C03] text-sm"
                   aria-label="Select language"
                 >
                   <option value="EN">English</option>
