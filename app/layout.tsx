@@ -20,8 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inconsolata.variable} antialiased`}>
-        <Navbar />
+      <body className={`${inconsolata.variable} antialiased`}>      
         {children}
       </body>
     </html>
