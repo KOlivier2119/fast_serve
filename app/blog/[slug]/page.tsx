@@ -13,7 +13,7 @@ import {
   User,
 } from "lucide-react"
 
-const BlogPostPage = ({ params }: { params: { slug: string } }) => {
+export default function BlogPostPage({ params }: { params: { slug: string } }) {
   // This would normally come from a database or API
   const post = {
     id: params.slug,
@@ -740,6 +740,4 @@ const BlogPostPage = ({ params }: { params: { slug: string } }) => {
     </div>
   )
 }
-
-export default BlogPostPage
 
