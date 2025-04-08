@@ -10,10 +10,25 @@ import {
   FaChevronDown,
 } from "react-icons/fa";
 
+import * as React from "react";
+
+import { Button } from "@/components/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuLabel,
+  DropdownMenuRadioGroup,
+  DropdownMenuRadioItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [cartItems, setCartItems] = useState(3);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [position, setPosition] = React.useState("bottom");
+  const [language, setLanguage] = useState("en");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -29,9 +44,11 @@ const Navbar = () => {
   }, []);
 
   return (
-    <div className={`fixed top-0 w-full z-50 ${
-      isScrolled ? "bg-[#396C03] shadow-md" : "bg-[#396C03]"
-    } text-white transition-all duration-300`}>
+    <div
+      className={`fixed top-0 w-full z-50 ${
+        isScrolled ? "bg-[#396C03] shadow-md" : "bg-[#396C03]"
+      } text-white transition-all duration-300`}
+    >
       <nav className="container mx-auto flex justify-between items-center px-4 py-4 md:px-6">
         {/* Logo */}
         <Link href="/" className="flex items-center">
@@ -54,7 +71,11 @@ const Navbar = () => {
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
         >
-          {isMenuOpen ? <FaTimes size={20} className="text-[#396C03]"/> : <FaBars size={20} />}
+          {isMenuOpen ? (
+            <FaTimes size={20} className="text-[#396C03]" />
+          ) : (
+            <FaBars size={20} />
+          )}
         </button>
 
         {/* Navigation Links - Desktop */}
@@ -65,26 +86,45 @@ const Navbar = () => {
 
           {/* Language Selector */}
           <div className="relative group px-3 py-2 mx-1">
-            <div className="flex items-center gap-1 cursor-pointer text-white hover:text-[#FF8B00] transition duration-300">
-              <FaGlobe className="text-[#FF8B00]" />
-              <span className="text-sm font-medium">EN</span>
-              <FaChevronDown className="text-xs opacity-70" />
-            </div>
-
             {/* Dropdown */}
-            <div className="absolute top-full left-0 mt-1 w-32 bg-white rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top scale-95 group-hover:scale-100 z-50">
-              <div className="py-1">
-                <button className="block w-full text-left px-4 py-2 text-sm text-gray-800 hover:bg-[#396C03]/10 hover:text-[#396C03]">
-                  English
-                </button>
-                <button className="block w-full text-left px-4 py-2 text-sm text-gray-800 hover:bg-[#396C03]/10 hover:text-[#396C03]">
-                  French
-                </button>
-                <button className="block w-full text-left px-4 py-2 text-sm text-gray-800 hover:bg-[#396C03]/10 hover:text-[#396C03]">
-                  Spanish
-                </button>
-              </div>
-            </div>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <div className="flex items-center gap-1 cursor-pointer text-white hover:text-[#FF8B00] transition duration-200">
+                  <FaGlobe className="text-[#FF8B00] text-[15px]" />
+                  <span className="text-xs font-medium">EN</span>
+                  <FaChevronDown className="text-[10px] opacity-70 transition-transform duration-200 group-data-[state=open]:rotate-180" />
+                </div>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent
+                className="min-w-[150px] bg-[#fff] border border-[#888787] rounded-md shadow-lg overflow-hidden py-1"
+                align="end"
+                sideOffset={5}
+              >
+                <DropdownMenuRadioGroup
+                  value={language}
+                  onValueChange={setLanguage}
+                >
+                  <DropdownMenuRadioItem
+                    value="en"
+                    className="px-2 py-1 text-xs text-[#333] hover:bg-[#3F3F3F] focus:bg-[#3F3F3F] cursor-pointer transition-colors"
+                  >
+                    English
+                  </DropdownMenuRadioItem>
+                  <DropdownMenuRadioItem
+                    value="fr"
+                    className="px-2 py-1 text-xs text-[#333] hover:bg-[#3F3F3F] focus:bg-[#3F3F3F] cursor-pointer transition-colors"
+                  >
+                    Français
+                  </DropdownMenuRadioItem>
+                  <DropdownMenuRadioItem
+                    value="es"
+                    className="px-2 py-1 text-xs text-[#333] hover:bg-[#3F3F3F] focus:bg-[#3F3F3F] cursor-pointer transition-colors"
+                  >
+                    Español
+                  </DropdownMenuRadioItem>
+                </DropdownMenuRadioGroup>
+              </DropdownMenuContent>
+            </DropdownMenu>
           </div>
 
           {/* Login Button */}
@@ -183,13 +223,7 @@ const Navbar = () => {
 };
 
 // Desktop Navigation Link Component
-const NavLink = ({ 
-  href, 
-  label
-}: { 
-  href: string; 
-  label: string;
-}) => {
+const NavLink = ({ href, label }: { href: string; label: string }) => {
   return (
     <Link
       href={href}
