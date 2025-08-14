@@ -78,16 +78,19 @@ const Navbar = () => {
           )}
         </button>
 
-        {/* Navigation Links - Desktop */}
-        <div className="hidden md:flex items-center gap-1 lg:gap-2">
+        <div className="hidden md:flex">
           <NavLink href="/" label="Home" />
           <NavLink href="/blog" label="Blog" />
           <NavLink href="/about" label="About Us" />
+        </div>
+
+        {/* Navigation Links - Desktop */}
+        <div className="hidden md:flex items-center gap-1 lg:gap-2">       
 
           {/* Language Selector */}
-          <div className="relative group px-3 py-2 mx-1">
+          {/* <div className="relative group px-3 py-2 mx-1"> */}
             {/* Dropdown */}
-            <DropdownMenu>
+            {/* <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <div className="flex items-center gap-1 cursor-pointer text-white hover:text-[#FF8B00] transition duration-200">
                   <FaGlobe className="text-[#FF8B00] text-[15px]" />
@@ -124,8 +127,8 @@ const Navbar = () => {
                   </DropdownMenuRadioItem>
                 </DropdownMenuRadioGroup>
               </DropdownMenuContent>
-            </DropdownMenu>
-          </div>
+            </DropdownMenu> */}
+          {/* </div> */}
 
           {/* Login Button */}
           <Link

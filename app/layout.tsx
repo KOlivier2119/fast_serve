@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Inconsolata } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/Navbar";
 
 const inconsolata = Inconsolata({
   variable: "--font-inconsolata",
@@ -20,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inconsolata.variable} antialiased`}>      
+      <body className={`${inconsolata.variable} antialiased`}>
         {children}
       </body>
     </html>

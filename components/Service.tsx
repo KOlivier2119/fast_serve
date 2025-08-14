@@ -26,14 +26,14 @@ const Service = () => {
       <div className="container mx-auto px-4">
         <h2 className="text-4xl font-bold text-center mb-16 text-gray-800">Our Services</h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-6xl mx-auto mb-32">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 w-full mx-auto mb-32">
           {data.map((item, index) => (
             <ServiceCard key={index} Icon={item.Icon} title={item.title} description={item.description} />
           ))}
         </div>
 
         {/* Promotional section with larger image */}
-        <div className="max-w-6xl mx-auto">
+        <div className="w-full mx-auto">
           <div className="relative rounded-2xl overflow-hidden shadow-xl">
             {/* Larger image with better object positioning */}
             <img src="/chef.svg" alt="Chef" className="w-full h-[600px] md:h-[700px] object-cover object-center" />

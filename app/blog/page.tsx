@@ -217,17 +217,14 @@ const BlogPage = () => {
             <nav className="hidden md:flex items-center space-x-8">
               <Link href="/" className="text-gray-600 hover:text-[#396C03] transition-colors">
                 Home
-              </Link>
-              <Link href="#" className="text-gray-600 hover:text-[#396C03] transition-colors">
-                Menu
-              </Link>
+              </Link>              
               <Link
                 href="/blog"
                 className="text-[#396C03] font-medium relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-[#FF8B00]"
               >
                 Blog
               </Link>
-              <Link href="#" className="text-gray-600 hover:text-[#396C03] transition-colors">
+              <Link href="/about" className="text-gray-600 hover:text-[#396C03] transition-colors">
                 About
               </Link>
               <Link href="#" className="text-gray-600 hover:text-[#396C03] transition-colors">

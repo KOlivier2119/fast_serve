@@ -124,7 +124,7 @@ const Faq = () => {
 
   return (
     <section className="py-16 bg-gray-50">
-      <div className="container mx-auto px-4 max-w-6xl">
+      <div className="container mx-auto px-4 w-full">
         <h2 className="text-center text-3xl font-bold text-[#3F3F3F] mb-8">Frequently Asked Questions</h2>
 
         {/* Tab Navigation */}
