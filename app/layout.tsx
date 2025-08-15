@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import { Inconsolata } from "next/font/google";
+import { Montserrat } from "next/font/google";
 import "./globals.css";
 
-const inconsolata = Inconsolata({
-  variable: "--font-inconsolata",
+const montserrat = Montserrat({
+  variable: "--font-montserrat",
   subsets: ["latin"],
 });
 
@@ -19,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inconsolata.variable} antialiased`}>
+      <body className={`${montserrat.variable} antialiased`}>
         {children}
       </body>
     </html>
