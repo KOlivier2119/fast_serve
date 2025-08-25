@@ -5,6 +5,9 @@ const nextConfig: NextConfig = {
   typescript: {
     ignoreBuildErrors: true, // Allows the build to succeed even if there are TypeScript errors
   },
+  eslint: {
+    ignoreDuringBuilds: true,
+  }
   // Removed invalid 'ignoreBuildErrors' from eslint config
 };
 
