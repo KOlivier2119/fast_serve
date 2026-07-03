@@ -1,14 +1,17 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
   typescript: {
-    ignoreBuildErrors: true, // Allows the build to succeed even if there are TypeScript errors
+    ignoreBuildErrors: true,
   },
   eslint: {
     ignoreDuringBuilds: true,
-  }
-  // Removed invalid 'ignoreBuildErrors' from eslint config
+  },
+  images: {
+    // Allow next/image to serve local public folder JPGs and PNGs
+    formats: ["image/avif", "image/webp"],
+    // No remotePatterns needed for local /public images
+  },
 };
 
 export default nextConfig;

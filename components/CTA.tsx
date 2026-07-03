@@ -1,5 +1,6 @@
 import Link from "next/link"
-import { FaGooglePlay, FaApple } from "react-icons/fa"
+import { HugeiconsIcon } from "@hugeicons/react"
+import { PlayStoreIcon, AppleIcon } from "@hugeicons/core-free-icons"
 import Image from "next/image"
 
 const CTA = () => {
@@ -9,7 +10,7 @@ const CTA = () => {
       <div className="absolute top-0 left-0 w-32 h-32 rounded-full bg-[#FF8B00]/10 -translate-x-1/2 -translate-y-1/2"></div>
       <div className="absolute bottom-0 right-0 w-64 h-64 rounded-full bg-[#396C03]/10 translate-x-1/3 translate-y-1/3"></div>
 
-      <div className="container mx-auto px-4">
+      <div className="section-inner">
         <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12 lg:gap-16">
           {/* Content Column */}
           <div className="w-full md:w-1/2 max-w-lg">
@@ -28,8 +29,8 @@ const CTA = () => {
                 href="#"
                 className="flex items-center gap-3 bg-black text-white px-6 py-3 rounded-xl hover:bg-gray-900 transition-all duration-300 shadow-lg hover:shadow-xl group"
               >
-                <div className="bg-white rounded-full p-1.5 text-black">
-                  <FaApple size={24} className="group-hover:scale-110 transition-transform duration-300" />
+                <div className="bg-white rounded-full p-1.5 text-black flex items-center justify-center">
+                  <HugeiconsIcon icon={AppleIcon} size={24} color="black" strokeWidth={2} className="group-hover:scale-110 transition-transform duration-300" />
                 </div>
                 <div>
                   <div className="text-xs opacity-80">Download on the</div>
@@ -42,8 +43,8 @@ const CTA = () => {
                 href="#"
                 className="flex items-center gap-3 bg-black text-white px-6 py-3 rounded-xl hover:bg-gray-900 transition-all duration-300 shadow-lg hover:shadow-xl group"
               >
-                <div className="bg-white rounded-full p-1.5 text-black">
-                  <FaGooglePlay size={24} className="group-hover:scale-110 transition-transform duration-300" />
+                <div className="bg-white rounded-full p-1.5 text-black flex items-center justify-center">
+                  <HugeiconsIcon icon={PlayStoreIcon} size={24} color="black" strokeWidth={2} className="group-hover:scale-110 transition-transform duration-300" />
                 </div>
                 <div>
                   <div className="text-xs opacity-80">GET IT ON</div>

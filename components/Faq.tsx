@@ -3,6 +3,8 @@
 import { useState } from "react"
 import Link from "next/link"
 import { ChevronDown, ChevronUp } from "lucide-react"
+import { HugeiconsIcon } from "@hugeicons/react"
+import { ArrowDown01Icon, ArrowUp01Icon } from "@hugeicons/core-free-icons"
 
 // FAQ data
 const generalFaqs = [
@@ -92,7 +94,11 @@ const AccordionItem = ({
       >
         <span className="pr-2">{question}</span>
         <span className="text-[#396C03] flex-shrink-0">
-          {isOpen ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
+          {isOpen ? (
+            <HugeiconsIcon icon={ArrowUp01Icon} size={20} color="#396C03" strokeWidth={2} />
+          ) : (
+            <HugeiconsIcon icon={ArrowDown01Icon} size={20} color="#396C03" strokeWidth={2} />
+          )}
         </span>
       </button>
       <div
@@ -123,38 +129,52 @@ const Faq = () => {
   const rightColumnFaqs = faqs.slice(Math.ceil(faqs.length / 2))
 
   return (
-    <section className="py-16 bg-gray-50">
-      <div className="container mx-auto px-4 w-full">
+    <section className="py-16 md:py-24 bg-gray-50" id="faq">
+      <div className="section-inner w-full">
         <h2 className="text-center text-3xl font-bold text-[#3F3F3F] mb-8">Frequently Asked Questions</h2>
 
-        {/* Tab Navigation */}
-        <div className="flex justify-center gap-4 mb-12">
-          <button
-            onClick={() => {
-              setActiveTab("general")
-              setOpenItems([0])
-            }}
-            className={`px-6 py-3 rounded-full text-base font-medium transition-all duration-300 ${
-              activeTab === "general"
-                ? "bg-[#396C03] text-white shadow-md"
-                : "bg-white text-[#396C03] hover:bg-gray-100"
-            }`}
-          >
-            General
-          </button>
-          <button
-            onClick={() => {
-              setActiveTab("business")
-              setOpenItems([0])
-            }}
-            className={`px-6 py-3 rounded-full text-base font-medium transition-all duration-300 ${
-              activeTab === "business"
-                ? "bg-[#396C03] text-white shadow-md"
-                : "bg-white text-[#396C03] hover:bg-gray-100"
-            }`}
-          >
-            For Business
-          </button>
+        {/* Tab Navigation - Toggle Switch */}
+        <div className="flex justify-center mb-12">
+          <div className="relative bg-gray-100 p-1.5 rounded-full inline-flex items-center">
+            {/* Sliding background indicator */}
+            <div
+              className={`absolute top-1.5 h-[calc(100%-12px)] bg-[#396C03] rounded-full shadow-md transition-all duration-300 ease-in-out ${
+                activeTab === "general" 
+                  ? "left-1.5 w-[calc(50%-6px)]" 
+                  : "left-[calc(50%+3px)] w-[calc(50%-6px)]"
+              }`}
+            />
+            
+            {/* General Button */}
+            <button
+              onClick={() => {
+                setActiveTab("general")
+                setOpenItems([0])
+              }}
+              className={`relative z-10 px-8 py-2.5 rounded-full text-base font-semibold transition-colors duration-300 ${
+                activeTab === "general"
+                  ? "text-white"
+                  : "text-gray-600 hover:text-gray-900"
+              }`}
+            >
+              General
+            </button>
+            
+            {/* For Business Button */}
+            <button
+              onClick={() => {
+                setActiveTab("business")
+                setOpenItems([0])
+              }}
+              className={`relative z-10 px-8 py-2.5 rounded-full text-base font-semibold transition-colors duration-300 ${
+                activeTab === "business"
+                  ? "text-white"
+                  : "text-gray-600 hover:text-gray-900"
+              }`}
+            >
+              For Business
+            </button>
+          </div>
         </div>
 
         {/* Two-column Accordion Layout */}

@@ -4,6 +4,13 @@ import type React from "react"
 import { useState } from "react"
 import Link from "next/link"
 import { Eye, EyeOff, ArrowLeft, Loader2 } from "lucide-react"
+import { HugeiconsIcon } from "@hugeicons/react"
+import {
+  ViewIcon,
+  ViewOffSlashIcon,
+  ArrowLeft01Icon,
+  Loading03Icon,
+} from "@hugeicons/core-free-icons"
 
 const LoginPage = () => {
   const [showPassword, setShowPassword] = useState(false)
@@ -23,7 +30,7 @@ const LoginPage = () => {
       {/* Header with navigation */}
       <header className="w-full p-4 flex items-center">
         <Link href="/" className="flex items-center text-white hover:text-white/80 transition-colors">
-          <ArrowLeft size={20} className="mr-2" />
+          <HugeiconsIcon icon={ArrowLeft01Icon} size={20} color="white" strokeWidth={2} className="mr-2" />
           <span>Back to Home</span>
         </Link>
       </header>
@@ -86,7 +93,7 @@ const LoginPage = () => {
                       className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-gray-700 transition-colors"
                       onClick={() => setShowPassword(!showPassword)}
                     >
-                      {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+                      {showPassword ? <HugeiconsIcon icon={ViewOffSlashIcon} size={20} color="currentColor" strokeWidth={2} /> : <HugeiconsIcon icon={ViewIcon} size={20} color="currentColor" strokeWidth={2} />}
                     </button>
                   </div>
                 </div>
@@ -109,7 +116,7 @@ const LoginPage = () => {
                 >
                   {isLoading ? (
                     <>
-                      <Loader2 size={20} className="animate-spin mr-2" />
+                      <HugeiconsIcon icon={Loading03Icon} size={20} color="white" strokeWidth={2} className="animate-spin mr-2" />
                       Signing in...
                     </>
                   ) : (

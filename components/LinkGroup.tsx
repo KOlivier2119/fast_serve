@@ -1,27 +1,48 @@
-import React from 'react';
-import { FaSearch } from 'react-icons/fa';
+"use client";
+
+import React, { useState } from "react";
+import { HugeiconsIcon } from "@hugeicons/react";
+import { Search01Icon, Location01Icon } from "@hugeicons/core-free-icons";
 
 const LinkGroup = () => {
+  const [query, setQuery] = useState("");
+
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Search handler — extend with routing or API call
+  };
+
   return (
-    <div className="flex px-6 items-center w-full max-w-xl rounded-full border border-gray-300 shadow-md p-1 sm:p-2 bg-white my-4">
-      {/* Input Field */}
+    <form
+      onSubmit={handleSearch}
+      className="flex items-center w-full max-w-lg bg-white rounded-full shadow-lg p-1.5"
+    >
+      {/* Location icon */}
+      <div className="flex items-center pl-3 pr-2 text-[#396C03] flex-shrink-0">
+        <HugeiconsIcon icon={Location01Icon} size={18} color="#396C03" strokeWidth={2} />
+      </div>
+
+      {/* Input */}
       <input
         type="text"
-        className="w-full sm:flex-1 px-4 py-2 sm:py-3 text-gray-700 bg-transparent outline-none rounded-full sm:rounded-none sm:rounded-l-full"
-        placeholder="Enter your location"
+        value={query}
+        onChange={(e) => setQuery(e.target.value)}
+        className="flex-1 py-2.5 pr-2 text-gray-700 bg-transparent outline-none placeholder:text-gray-400 text-sm md:text-base"
+        placeholder="Enter your location..."
+        aria-label="Search location"
       />
 
-      {/* Search Button - Mobile (icon only) */}
-      <button className="sm:hidden flex items-center justify-center w-12 h-12 bg-[#396C03] text-white rounded-full transition-all duration-300 hover:bg-[#2e5202] active:scale-95 mt-2 sm:mt-0">
-        <FaSearch className="text-xl" />
+      {/* Search button */}
+      <button
+        type="submit"
+        className="flex items-center gap-2 bg-[#396C03] hover:bg-[#2e5202] text-white font-semibold
+                   pl-5 pr-6 py-3 rounded-full transition-all duration-200 active:scale-95 flex-shrink-0 shadow-sm"
+        aria-label="Search"
+      >
+        <HugeiconsIcon icon={Search01Icon} size={16} color="white" strokeWidth={2.5} />
+        <span className="hidden sm:inline whitespace-nowrap text-sm">Search</span>
       </button>
-
-      {/* Search Button - Desktop (with text) */}
-      <button className="hidden sm:flex items-center gap-2 py-3 px-3 bg-[#396C03] text-white sm:px-8 sm:py-3 rounded-full sm:rounded-r-full transition-all duration-300 hover:bg-[#2e5202] active:scale-95">
-        <FaSearch className="text-white" /> 
-        <span className="whitespace-nowrap">Search</span>
-      </button>
-    </div>
+    </form>
   );
 };
 

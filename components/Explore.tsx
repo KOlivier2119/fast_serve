@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from "react"
 import { FaArrowRight } from "react-icons/fa6"
+import { HugeiconsIcon } from "@hugeicons/react"
+import { ArrowRight01Icon } from "@hugeicons/core-free-icons"
 import Image from "next/image"
 import bicycle from "../public/biker.svg"
 import { motion } from "framer-motion"
@@ -29,10 +31,10 @@ const Explore = () => {
   return (
     <section
       id="explore-section"
-      className="bg-[rgba(255,139,0,0.05)] py-16 md:py-24 overflow-hidden"
+      className="bg-gradient-to-b from-white to-[#fff8f0] py-16 md:py-24 overflow-hidden"
       aria-label="Explore food section"
     >
-      <div className="container mx-auto px-4 md:px-6 lg:px-8">
+      <div className="section-inner">
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-8">
           {/* Left Content */}
           <motion.div
@@ -88,7 +90,7 @@ const Explore = () => {
               <div className="flex justify-center md:justify-start">
                 <button className="mt-8 py-3.5 px-7 bg-[#396C03] rounded-full flex items-center gap-3 text-white font-medium transition-all duration-300 hover:bg-[#2e5802] hover:shadow-lg transform hover:-translate-y-1 active:translate-y-0 group">
                   Explore
-                  <FaArrowRight className="group-hover:translate-x-1 transition-transform duration-300" />
+                  <HugeiconsIcon icon={ArrowRight01Icon} size={16} color="white" strokeWidth={2} className="group-hover:translate-x-1 transition-transform duration-300" />
                 </button>
               </div>
             </div>

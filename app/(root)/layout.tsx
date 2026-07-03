@@ -1,13 +1,8 @@
-import React, { ReactNode } from 'react'
-import Navbar from '@/components/Navbar'
+import React, { ReactNode } from "react";
 
-const layout = ({children}: Readonly<{children: ReactNode}>) => {
-  return (
-    <div>
-        <Navbar />
-      {children}
-    </div>
-  )
-}
+// Layout for (root) routes — Navbar is included per-page to keep it flexible
+const layout = ({ children }: Readonly<{ children: ReactNode }>) => {
+  return <div className="w-full">{children}</div>;
+};
 
-export default layout
+export default layout;

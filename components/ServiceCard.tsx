@@ -1,7 +1,8 @@
 import type React from "react";
+import { HugeiconsIcon, type IconSvgElement } from "@hugeicons/react";
 
 interface Props {
-  Icon: React.ElementType;
+  Icon: IconSvgElement;
   title: string;
   description: string;
 }
@@ -23,7 +24,7 @@ const ServiceCard = ({ Icon, title, description }: Props) => {
         <div className="relative z-10">
           {/* Icon container */}
           <div className="mb-5 inline-flex rounded-full bg-[#396C03]/10 p-3 text-[#396C03]">
-            <Icon className="h-8 w-8" />
+            <HugeiconsIcon icon={Icon} size={32} color="#396C03" strokeWidth={2} />
           </div>
 
           {/* Title with bottom border effect */}
