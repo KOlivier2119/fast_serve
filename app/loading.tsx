@@ -76,7 +76,7 @@ const AdvancedLoading = () => {
 
           {/* Center pulse */}
           <div className="absolute inset-6 w-12 h-12 bg-white/30 rounded-full animate-pulse flex items-center justify-center">
-            <div className="w-6 h-6 bg-white rounded-full animate-bounce"></div>
+            <div className="w-6 h-6 bg-white rounded-full"></div>
           </div>
         </div>
 
@@ -99,14 +99,7 @@ const AdvancedLoading = () => {
         {/* Loading dots */}
         <div className="flex space-x-2">
           {[...Array(3)].map((_, i) => (
-            <div
-              key={i}
-              className="w-3 h-3 bg-white/80 rounded-full animate-bounce"
-              style={{
-                animationDelay: `${i * 0.2}s`,
-                animationDuration: "1s",
-              }}
-            />
+            <div key={i} className="w-3 h-3 bg-white/80 rounded-full" />
           ))}
         </div>
 

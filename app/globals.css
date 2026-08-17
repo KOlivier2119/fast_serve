@@ -16,25 +16,18 @@
   to   { transform: translate(-50%, -50%) rotate(360deg); }
 }
 
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50%      { transform: translateY(-10px); }
-}
-
-@keyframes float-delayed {
-  0%, 100% { transform: translateY(0px); }
-  50%      { transform: translateY(-8px); }
-}
-
 .animate-fade-in       { animation: fadeIn 0.3s ease-in-out; }
 .animate-spin-slow     { animation: spin-slow 20s linear infinite; }
-.animate-float         { animation: float 3s ease-in-out infinite; }
-.animate-float-delayed { animation: float-delayed 3.5s ease-in-out infinite 0.5s; }
 
 /* ───────────────────────────────────
    CSS Design Tokens
 ─────────────────────────────────── */
 :root {
+  --brand-green: #396C03;
+  --brand-green-dark: #2A5102;
+  --brand-orange: #FF8B00;
+  --brand-orange-dark: #E07A00;
+  --brand-text: #3F3F3F;
   --radius: 0.625rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
@@ -104,10 +97,9 @@
 }
 
 @theme inline {
-  /* Merienda for headings, Roboto for body */
-  --font-heading: var(--font-merienda);
-  --font-body:    var(--font-roboto);
-  --font-sans:    var(--font-roboto);
+  --font-heading: var(--font-inter);
+  --font-body:    var(--font-inter);
+  --font-sans:    var(--font-inter);
 
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -152,14 +144,14 @@
   }
   body {
     @apply bg-background text-foreground;
-    font-family: var(--font-roboto), system-ui, -apple-system, sans-serif;
+    font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
   h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-merienda), system-ui, -apple-system, sans-serif;
-    letter-spacing: -0.01em;
-    font-weight: 700;
+    font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+    letter-spacing: -0.02em;
+    font-weight: 600;
   }
 }
 
@@ -167,5 +159,43 @@
   /* Wide inner container for landing sections — generous horizontal breathing room */
   .section-inner {
     @apply max-w-7xl mx-auto px-6 sm:px-10 md:px-16 lg:px-24 xl:px-28;
+  }
+
+  .article-body {
+    @apply text-[1.05rem] leading-relaxed text-gray-600;
+  }
+  .article-body p {
+    @apply mb-5;
+  }
+  .article-body h2 {
+    @apply mt-10 mb-3 text-2xl font-semibold tracking-tight text-gray-900;
+  }
+  .article-body h3 {
+    @apply mt-8 mb-2 text-lg font-semibold text-gray-900;
+  }
+  .article-body ul,
+  .article-body ol {
+    @apply mb-5 ml-5 space-y-2;
+  }
+  .article-body ul {
+    @apply list-disc;
+  }
+  .article-body ol {
+    @apply list-decimal;
+  }
+  .article-body li {
+    @apply pl-1;
+  }
+  .article-body strong {
+    @apply font-semibold text-gray-800;
+  }
+  .article-body blockquote {
+    @apply my-8 border-l-2 border-[#396C03] pl-5 text-gray-800;
+  }
+  .article-body blockquote p {
+    @apply mb-2 text-lg italic;
+  }
+  .article-body cite {
+    @apply not-italic text-sm text-gray-500;
   }
 }

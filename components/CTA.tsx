@@ -85,7 +85,7 @@ const CTA = () => {
             </div>
 
             {/* Floating elements */}
-            <div className="absolute top-1/4 -left-6 bg-white rounded-xl shadow-lg p-3 animate-float">
+            <div className="absolute top-1/4 -left-6 bg-white rounded-xl shadow-lg p-3">
               <div className="flex items-center gap-2">
                 <div className="w-8 h-8 bg-[#396C03] rounded-full flex items-center justify-center">
                   <svg
@@ -102,7 +102,7 @@ const CTA = () => {
               </div>
             </div>
 
-            <div className="absolute bottom-1/4 -right-4 bg-white rounded-xl shadow-lg p-3 animate-float-delayed">
+            <div className="absolute bottom-1/4 -right-4 bg-white rounded-xl shadow-lg p-3">
               <div className="flex items-center gap-2">
                 <div className="w-8 h-8 bg-[#FF8B00] rounded-full flex items-center justify-center">
                   <svg

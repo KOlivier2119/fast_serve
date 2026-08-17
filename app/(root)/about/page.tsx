@@ -1,8 +1,6 @@
-import Image from "next/image"
-import Link from "next/link"
-import Navbar from "@/components/Navbar"
-import Footer from "@/components/Footer"
-import { HugeiconsIcon, type IconSvgElement } from "@hugeicons/react"
+import Link from "next/link";
+import MarketingLayout from "@/components/MarketingLayout";
+import { HugeiconsIcon, type IconSvgElement } from "@hugeicons/react";
 import {
   CheckmarkCircle01Icon,
   Leaf01Icon,
@@ -11,223 +9,222 @@ import {
   UserGroupIcon,
   Store01Icon,
   StarCircleIcon,
-} from "@hugeicons/core-free-icons"
+} from "@hugeicons/core-free-icons";
 
 export const metadata = {
   title: "About Us | FastServe",
-  description: "Learn about FastServe — our story, mission, and the team behind the fastest food delivery service.",
-}
+  description: "The story, values, and people behind FastServe.",
+};
 
 const stats: { icon: IconSvgElement; value: string; label: string }[] = [
-  { icon: UserGroupIcon, value: "500K+", label: "Happy Customers" },
-  { icon: Store01Icon, value: "2,000+", label: "Partner Restaurants" },
-  { icon: BoltIcon, value: "20 min", label: "Average Delivery" },
-  { icon: StarCircleIcon, value: "4.8/5", label: "Customer Rating" },
-]
+  { icon: UserGroupIcon, value: "500K+", label: "Customers" },
+  { icon: Store01Icon, value: "2,000+", label: "Restaurants" },
+  { icon: BoltIcon, value: "20 min", label: "Average delivery" },
+  { icon: StarCircleIcon, value: "4.8/5", label: "Rating" },
+];
 
 const values: { icon: IconSvgElement; title: string; description: string }[] = [
   {
     icon: BoltIcon,
-    title: "Speed First",
-    description: "We obsess over delivery time so your food reaches you hot, fresh, and on time — every single order.",
+    title: "Speed",
+    description: "Food leaves the pass when the rider is close. Not before. Not twenty minutes after.",
   },
   {
     icon: Leaf01Icon,
-    title: "Sustainability",
-    description: "Eco-friendly packaging, carbon-neutral deliveries, and partnerships with local farms power our mission.",
+    title: "Less waste",
+    description: "Packaging that matches the dish. No extra bag for a single box.",
   },
   {
     icon: FavouriteCircleIcon,
-    title: "Community",
-    description: "We uplift local restaurants and riders, creating real economic value in every neighborhood we serve.",
+    title: "Local kitchens",
+    description: "We list restaurants that already cook well. We do not replace them with ghost brands.",
   },
   {
     icon: CheckmarkCircle01Icon,
-    title: "Quality Guaranteed",
-    description: "Our restaurant partners are carefully vetted for food safety, taste, and service excellence.",
+    title: "A real standard",
+    description: "Partners are reviewed for food safety, ticket times, and how the food holds in transit.",
   },
-]
+];
 
 const team = [
-  { name: "Kwizera Olivier", role: "Founder & CEO", initials: "KO", color: "bg-[#396C03]" },
-  { name: "Sarah Johnson", role: "Head of Product", initials: "SJ", color: "bg-blue-500" },
-  { name: "Michael Chen", role: "CTO", initials: "MC", color: "bg-purple-500" },
-  { name: "Amara Diallo", role: "Head of Operations", initials: "AD", color: "bg-orange-500" },
-  { name: "Priya Patel", role: "Marketing Director", initials: "PP", color: "bg-pink-500" },
-  { name: "Alex Green", role: "Head of Sustainability", initials: "AG", color: "bg-teal-500" },
-]
+  {
+    name: "Kwizera Olivier",
+    role: "Founder & CEO",
+    initials: "KO",
+    bio: "Started FastServe after one too many cold deliveries. Still takes weekend rider shifts.",
+  },
+  {
+    name: "Sarah Johnson",
+    role: "Head of Product",
+    initials: "SJ",
+    bio: "Owns the order flow — from search to the moment the bag hits the door.",
+  },
+  {
+    name: "Michael Chen",
+    role: "CTO",
+    initials: "MC",
+    bio: "Builds dispatch, tracking, and the unglamorous systems that keep tickets moving.",
+  },
+  {
+    name: "Amara Diallo",
+    role: "Head of Operations",
+    initials: "AD",
+    bio: "Works with kitchens and riders on the two-minute pickup window.",
+  },
+  {
+    name: "Priya Patel",
+    role: "Marketing",
+    initials: "PP",
+    bio: "Writes the words you see in the app and keeps the restaurant stories honest.",
+  },
+  {
+    name: "Alex Green",
+    role: "Sustainability",
+    initials: "AG",
+    bio: "Pushes packaging changes that survive soup, rain, and a city compost bin.",
+  },
+];
 
 const AboutPage = () => {
   return (
-    <div className="w-full">
-      <Navbar />
-
-      {/* Hero Section */}
-      <section className="relative pt-28 pb-20 bg-[#396C03] overflow-hidden">
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-white/5 translate-x-1/3 -translate-y-1/3 pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-[350px] h-[350px] rounded-full bg-[#FF8B00]/10 -translate-x-1/4 translate-y-1/3 pointer-events-none" />
-        <div className="container mx-auto px-4 md:px-6 relative">
-          <div className="max-w-3xl mx-auto text-center text-white">
-            <span className="inline-block bg-white/20 backdrop-blur-sm px-4 py-1.5 rounded-full text-sm font-medium mb-6">
-              Our Story
-            </span>
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-              Delivering More Than Just{" "}
-              <span className="text-[#FF8B00]">Food</span>
-            </h1>
-            <p className="text-lg md:text-xl text-white/85 leading-relaxed max-w-2xl mx-auto">
-              FastServe was born from a simple idea: great food should reach great people quickly, reliably, and with a
-              smile. Since 2020, we've been on a mission to connect communities through the joy of food.
-            </p>
-          </div>
-        </div>
-        <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-gray-50 to-transparent" />
-      </section>
-
-      {/* Stats */}
-      <section className="bg-gray-50 py-16">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {stats.map((stat, i) => (
-              <div
-                key={i}
-                className="bg-white rounded-2xl p-6 text-center shadow-sm hover:shadow-md transition-shadow duration-300 border border-gray-100"
-              >
-                <div className="w-12 h-12 bg-[#396C03]/10 rounded-full flex items-center justify-center mx-auto mb-4 text-[#396C03]">
-                  <HugeiconsIcon icon={stat.icon} size={24} color="#396C03" strokeWidth={2} />
-                </div>
-                <div className="text-3xl font-bold text-[#396C03] mb-1">{stat.value}</div>
-                <div className="text-gray-500 text-sm font-medium">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Mission */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="flex flex-col lg:flex-row items-center gap-12">
-            <div className="w-full lg:w-1/2">
-              <span className="inline-block bg-[#FF8B00]/10 text-[#FF8B00] px-4 py-1.5 rounded-full text-sm font-medium mb-4">
-                Our Mission
-              </span>
-              <h2 className="text-3xl md:text-4xl font-bold text-[#396C03] mb-6 leading-tight">
-                Making Every Meal an Experience Worth Remembering
-              </h2>
-              <div className="space-y-4 text-gray-600 text-lg leading-relaxed">
-                <p>
-                  We partner with the best local restaurants, carefully selecting partners who share our commitment
-                  to quality, freshness, and customer satisfaction.
-                </p>
-                <p>
-                  Our technology-first approach means real-time tracking, AI-powered route optimization, and a
-                  seamless ordering experience that puts the best food in your city at your fingertips.
-                </p>
-              </div>
-              <Link
-                href="/register"
-                className="inline-flex items-center mt-8 bg-[#396C03] hover:bg-[#2A5001] text-white font-semibold py-3.5 px-8 rounded-full transition-all duration-300 hover:shadow-lg"
-              >
-                Get Started Today
-              </Link>
-            </div>
-            <div className="w-full lg:w-1/2">
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl aspect-[4/3]">
-                <img
-                  src="/blog_restaurant.jpg"
-                  alt="Team working at FastServe"
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#396C03]/40 to-transparent" />
-                <div className="absolute bottom-6 left-6 bg-white/90 backdrop-blur-sm rounded-2xl px-5 py-4 shadow-lg">
-                  <div className="text-[#396C03] font-bold text-lg">Founded in 2020</div>
-                  <div className="text-gray-500 text-sm">Serving 50+ cities worldwide</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Values */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="text-center mb-14">
-            <span className="inline-block bg-[#396C03]/10 text-[#396C03] px-4 py-1.5 rounded-full text-sm font-medium mb-4">
-              What Drives Us
-            </span>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-800">Our Core Values</h2>
-          </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {values.map((val, i) => (
-              <div
-                key={i}
-                className="bg-white rounded-2xl p-7 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border border-gray-100 group"
-              >
-                <div className="w-12 h-12 bg-[#396C03]/10 rounded-xl flex items-center justify-center mb-5 text-[#396C03] group-hover:bg-[#396C03] group-hover:text-white transition-colors duration-300">
-                  <HugeiconsIcon icon={val.icon} size={24} color="currentColor" strokeWidth={2} />
-                </div>
-                <h3 className="font-bold text-lg text-gray-800 mb-3">{val.title}</h3>
-                <p className="text-gray-500 leading-relaxed text-sm">{val.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Team */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="text-center mb-14">
-            <span className="inline-block bg-[#FF8B00]/10 text-[#FF8B00] px-4 py-1.5 rounded-full text-sm font-medium mb-4">
-              The People Behind FastServe
-            </span>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-800">Meet Our Team</h2>
-          </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {team.map((member, i) => (
-              <div key={i} className="flex flex-col items-center text-center group">
-                <div
-                  className={`w-24 h-24 rounded-2xl ${member.color} flex items-center justify-center text-white text-2xl font-bold mb-4 shadow-lg group-hover:scale-105 transition-transform duration-300`}
-                >
-                  {member.initials}
-                </div>
-                <h3 className="font-bold text-lg text-gray-800">{member.name}</h3>
-                <p className="text-[#396C03] text-sm font-medium mt-1">{member.role}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Banner */}
-      <section className="py-16 bg-[#396C03]">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Ready to taste the difference?</h2>
-          <p className="text-white/80 text-lg mb-8 max-w-xl mx-auto">
-            Join half a million happy customers who rely on FastServe every day.
+    <MarketingLayout>
+      <section className="bg-[#396C03] text-white">
+        <div className="section-inner max-w-3xl py-14 md:py-16">
+          <p className="text-sm font-medium text-white/70">About</p>
+          <h1 className="mt-2 text-4xl font-bold tracking-tight md:text-5xl">
+            Food that is still hot when it arrives
+          </h1>
+          <p className="mt-4 text-lg leading-relaxed text-white/80">
+            FastServe connects you with kitchens nearby. We started in 2020 because delivery kept
+            optimizing for more pins on a map, not for the plate.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+        </div>
+      </section>
+
+      <section className="border-b border-gray-100 bg-white">
+        <div className="section-inner grid grid-cols-2 gap-8 py-10 md:grid-cols-4 md:py-12">
+          {stats.map((stat) => (
+            <div key={stat.label}>
+              <HugeiconsIcon icon={stat.icon} size={20} color="#396C03" strokeWidth={2} />
+              <p className="mt-3 text-2xl font-semibold text-gray-900">{stat.value}</p>
+              <p className="text-sm text-gray-500">{stat.label}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="bg-white">
+        <div className="section-inner grid items-center gap-12 py-16 lg:grid-cols-2 lg:py-20">
+          <div>
+            <p className="text-sm font-medium text-[#FF8B00]">How we work</p>
+            <h2 className="mt-2 text-3xl font-semibold tracking-tight text-gray-900">
+              The restaurant cooks. We handle the road.
+            </h2>
+            <div className="mt-5 space-y-4 text-gray-600 leading-relaxed">
+              <p>
+                Partners are local restaurants, not cloud kitchens wearing someone else’s name. If
+                a dish does not travel, it does not go on the delivery menu.
+              </p>
+              <p>
+                Dispatch waits on the kitchen, then assigns a rider. That is why the estimate is
+                twenty minutes more often than it is forty.
+              </p>
+            </div>
             <Link
               href="/register"
-              className="bg-[#FF8B00] hover:bg-[#E07A00] text-white font-semibold py-3.5 px-8 rounded-full transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5"
+              className="mt-8 inline-flex rounded-full bg-[#396C03] px-6 py-3 text-sm font-semibold text-white hover:bg-[#2A5102]"
             >
-              Order Now
+              Create an account
             </Link>
-            <Link
-              href="/blog"
-              className="bg-white/10 border border-white/30 hover:bg-white/20 text-white font-semibold py-3.5 px-8 rounded-full transition-all duration-300"
-            >
-              Read Our Blog
-            </Link>
+          </div>
+          <div className="relative overflow-hidden rounded-2xl">
+            <img
+              src="/blog_restaurant.jpg"
+              alt="A restaurant kitchen"
+              className="aspect-[4/3] w-full object-cover"
+            />
+            <div className="absolute bottom-4 left-4 rounded-xl bg-white px-4 py-3 shadow-sm">
+              <p className="text-sm font-semibold text-gray-900">Since 2020</p>
+              <p className="text-xs text-gray-500">50+ cities</p>
+            </div>
           </div>
         </div>
       </section>
 
-      <Footer />
-    </div>
-  )
-}
+      <section className="bg-gray-50">
+        <div className="section-inner py-16 lg:py-20">
+          <h2 className="text-3xl font-semibold tracking-tight text-gray-900">What we refuse to trade away</h2>
+          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {values.map((val) => (
+              <div key={val.title} className="rounded-2xl bg-white p-6">
+                <HugeiconsIcon icon={val.icon} size={22} color="#396C03" strokeWidth={2} />
+                <h3 className="mt-4 font-semibold text-gray-900">{val.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-gray-600">{val.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-export default AboutPage
+      <section className="bg-white">
+        <div className="section-inner py-16 lg:py-20">
+          <div className="max-w-2xl">
+            <p className="text-sm font-medium text-[#FF8B00]">Team</p>
+            <h2 className="mt-2 text-3xl font-semibold tracking-tight text-gray-900">
+              The people who keep the tickets moving
+            </h2>
+            <p className="mt-3 text-gray-600">
+              Small group. Direct owners for product, kitchens, riders, and packaging.
+            </p>
+          </div>
+          <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {team.map((member) => (
+              <li
+                key={member.name}
+                className="flex gap-4 rounded-2xl border border-gray-100 p-5"
+              >
+                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-[#396C03] text-sm font-semibold text-white">
+                  {member.initials}
+                </div>
+                <div>
+                  <h3 className="font-semibold text-gray-900">{member.name}</h3>
+                  <p className="text-sm text-[#396C03]">{member.role}</p>
+                  <p className="mt-2 text-sm leading-relaxed text-gray-600">{member.bio}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section className="bg-[#396C03] text-white">
+        <div className="section-inner flex flex-col items-start justify-between gap-6 py-14 md:flex-row md:items-center">
+          <div>
+            <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">
+              Come eat with us
+            </h2>
+            <p className="mt-2 max-w-md text-white/75">
+              Half a million people already do. The next order can be yours.
+            </p>
+          </div>
+          <div className="flex flex-wrap gap-3">
+            <Link
+              href="/register"
+              className="rounded-full bg-[#FF8B00] px-6 py-3 text-sm font-semibold text-white hover:bg-[#E07A00]"
+            >
+              Order now
+            </Link>
+            <Link
+              href="/contact"
+              className="rounded-full border border-white/30 px-6 py-3 text-sm font-semibold text-white hover:bg-white/10"
+            >
+              Contact
+            </Link>
+          </div>
+        </div>
+      </section>
+    </MarketingLayout>
+  );
+};
+
+export default AboutPage;

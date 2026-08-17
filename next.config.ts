@@ -8,9 +8,13 @@ const nextConfig: NextConfig = {
     ignoreDuringBuilds: true,
   },
   images: {
-    // Allow next/image to serve local public folder JPGs and PNGs
     formats: ["image/avif", "image/webp"],
-    // No remotePatterns needed for local /public images
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "lh3.googleusercontent.com",
+      },
+    ],
   },
 };
 

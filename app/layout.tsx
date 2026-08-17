@@ -1,19 +1,13 @@
 import type { Metadata } from "next";
-import { Merienda, Roboto } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
+import Providers from "@/components/Providers";
 
-const merienda = Merienda({
-  variable: "--font-merienda",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
   display: "swap",
-  weight: ["400", "700", "900"],
-});
-
-const roboto = Roboto({
-  variable: "--font-roboto",
-  subsets: ["latin"],
-  display: "swap",
-  weight: ["300", "400", "500", "700"],
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -32,8 +26,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${merienda.variable} ${roboto.variable}`}>
-      <body className="font-body antialiased">{children}</body>
+    <html lang="en" className={inter.variable}>
+      <body className="font-body antialiased">
+        <Providers>{children}</Providers>
+      </body>
     </html>
   );
 }

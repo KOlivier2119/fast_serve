@@ -1,6 +1,7 @@
 import type React from "react"
 import Link from "next/link"
 import Logo from "./Logo"
+import { NAV_LINKS } from "@/lib/navigation"
 import { HugeiconsIcon } from "@hugeicons/react"
 import {
   Facebook01Icon,
@@ -13,32 +14,29 @@ const Footer = () => {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="w-full bg-[#396C03] text-white">
-      {/* Main Footer Content */}
-      <div className="container mx-auto px-4 py-12">
+    <footer className="w-full bg-[#396C03] text-white mt-auto">
+      <div className="section-inner py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-          {/* Company Info */}
           <div>
             <div className="mb-4">
-              <Logo size={36} showWordmark={true} variant="default" />
+              <Logo size={36} showWordmark={true} variant="onGreen" />
             </div>
             <p className="text-gray-200 text-sm leading-relaxed">
               Fast, reliable food delivery from your favorite local restaurants.
             </p>
           </div>
 
-          {/* Quick Links */}
           <div>
             <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2 text-sm">
-              <FooterLink href="/">Home</FooterLink>
-              <FooterLink href="/blog">Blog</FooterLink>
-              <FooterLink href="/about">About Us</FooterLink>
-              <FooterLink href="/contact">Contact</FooterLink>
+              {NAV_LINKS.map(({ href, label }) => (
+                <FooterLink key={href} href={href}>
+                  {label}
+                </FooterLink>
+              ))}
             </ul>
           </div>
 
-          {/* Connect */}
           <div>
             <h3 className="text-lg font-semibold mb-4">Connect With Us</h3>
             <div className="flex gap-3 mb-4">
@@ -51,7 +49,6 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Footer Bottom */}
         <div className="border-t border-white/20 pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-gray-300 text-sm">
             &copy; {currentYear} FastServe. All rights reserved.
@@ -70,7 +67,6 @@ const Footer = () => {
   )
 }
 
-// Helper component for footer links
 const FooterLink = ({ href, children }: { href: string; children: React.ReactNode }) => {
   return (
     <li>
@@ -81,7 +77,6 @@ const FooterLink = ({ href, children }: { href: string; children: React.ReactNod
   )
 }
 
-// Helper component for social media links
 const SocialLink = ({ href, icon, label }: { href: string; icon: React.ReactNode; label: string }) => {
   return (
     <Link
@@ -95,4 +90,3 @@ const SocialLink = ({ href, icon, label }: { href: string; icon: React.ReactNode
 }
 
 export default Footer
-

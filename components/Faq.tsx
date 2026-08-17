@@ -2,7 +2,6 @@
 
 import { useState } from "react"
 import Link from "next/link"
-import { ChevronDown, ChevronUp } from "lucide-react"
 import { HugeiconsIcon } from "@hugeicons/react"
 import { ArrowDown01Icon, ArrowUp01Icon } from "@hugeicons/core-free-icons"
 
