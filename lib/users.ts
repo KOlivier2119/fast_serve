@@ -9,7 +9,9 @@ export type StoredUser = {
   image?: string | null;
 };
 
-const USERS_PATH = path.join(process.cwd(), "data", "users.json");
+const USERS_PATH = process.env.VERCEL
+  ? path.join("/tmp", "fastserve-users.json")
+  : path.join(process.cwd(), "data", "users.json");
 
 async function ensureFile() {
   await fs.mkdir(path.dirname(USERS_PATH), { recursive: true });

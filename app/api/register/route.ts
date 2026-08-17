@@ -25,18 +25,25 @@ export async function POST(request: Request) {
     );
   }
 
-  const existing = await findUserByEmail(email);
-  if (existing) {
-    return NextResponse.json({ error: "An account with that email already exists." }, { status: 409 });
-  }
+  try {
+    const existing = await findUserByEmail(email);
+    if (existing) {
+      return NextResponse.json({ error: "An account with that email already exists." }, { status: 409 });
+    }
 
-  await createUser({
-    id: crypto.randomUUID(),
-    name,
-    email,
-    passwordHash: await bcrypt.hash(password, 10),
-    image: null,
-  });
+    await createUser({
+      id: crypto.randomUUID(),
+      name,
+      email,
+      passwordHash: await bcrypt.hash(password, 10),
+      image: null,
+    });
+  } catch {
+    return NextResponse.json(
+      { error: "Could not save the account. Please try again." },
+      { status: 500 }
+    );
+  }
 
   return NextResponse.json({ ok: true });
 }

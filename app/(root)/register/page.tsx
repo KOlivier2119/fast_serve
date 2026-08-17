@@ -68,7 +68,7 @@ const RegisterPage = () => {
     setIsLoading(false)
 
     if (result?.error) {
-      router.push("/login")
+      router.push(`/login?registered=1&email=${encodeURIComponent(email)}`)
       return
     }
 

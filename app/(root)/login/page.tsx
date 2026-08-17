@@ -1,7 +1,7 @@
 "use client"
 
 import type React from "react"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Link from "next/link"
 import { signIn } from "next-auth/react"
 import { useRouter } from "next/navigation"
@@ -20,8 +20,18 @@ const LoginPage = () => {
   const [showPassword, setShowPassword] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState("")
+  const [notice, setNotice] = useState("")
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search)
+    if (params.get("registered") === "1") {
+      setNotice("Your account was created. Sign in to continue.")
+    }
+    const emailParam = params.get("email")
+    if (emailParam) setEmail(emailParam)
+  }, [])
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -102,6 +112,7 @@ const LoginPage = () => {
                   </div>
                 </div>
 
+                {notice && <p className="text-sm text-[#396C03]">{notice}</p>}
                 {error && <p className="text-sm text-red-600">{error}</p>}
 
                 <button
